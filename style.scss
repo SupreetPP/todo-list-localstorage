@@ -1,0 +1,427 @@
+$color-blue: #5a95ff;
+$color-red: #ff6868;
+$color-yellow:#ffd55c;
+$color-green: #4edc9f;
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  font-family: Lato;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+.site {
+  position: relative;
+  width: 100%;
+  padding: 9rem 0;
+  min-height: 100vh;
+  // background-color: $color-yellow;
+  background-image: radial-gradient(ellipse at 50% 100%, darken($color-blue, 5%) 60%, $color-blue 60%, $color-yellow 60%, darken($color-yellow, 5%) 60%);
+  // background: radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%);
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   width: 100%;
+  //   height: 60%;
+  //   background-color: $color-blue;
+  //   border-radius: 25px 25px 0 0;
+  // }
+
+
+  >* {
+    z-index: 1;
+    position: relative;
+  }
+
+  &-box {
+    background-color: #fff;
+    width: 100%;
+    max-width: 91rem;
+    margin: 0 auto;
+    box-shadow: 0 0 33px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &-head {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+    &-lt {
+      flex: 1.5;
+      flex-grow: 2;
+    }
+
+    &-rt {
+      flex: 1;
+      flex-grow: 2;
+      text-align: right;
+
+      button {
+        font-family: Montserrat;
+        font-size: 1.6rem;
+        font-weight: 700;
+        // text-transform: uppercase;
+        margin: .5rem 0 .5rem 1.5rem;
+        padding: 1rem 2rem;
+        color: #fff;
+        background-color: $color-blue;
+        border: 3px solid $color-blue;
+        border-radius: 25px;
+        transition: all .3s ease;
+
+        &:hover {
+          color: $color-blue;
+          background-color: #fff;
+          transform: scale(1.03);
+          box-shadow: 0 0 9px 1px rgba(#000, 0.1);
+        }
+      }
+    }
+
+    h1 {
+      font-size: 5rem;
+      margin: 0;
+      padding: 3rem 1rem;
+    }
+  }
+
+  &-body {
+    min-height: 40rem;
+  }
+}
+
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#table {
+  width: 100%;
+  // padding: 0 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+
+  &.complete-hide {
+    tr.complete {
+      overflow: hidden;
+
+      td {
+        margin-top: -6rem;
+      }
+    }
+  }
+}
+
+thead {}
+
+tbody {
+  perspective: 1500px;
+}
+
+tr {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 10rem;
+  transition: all .5s ease;
+
+  &::before,
+  &::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transition: all .5s ease;
+  }
+
+  &::before {
+    left: 0;
+    background-color: $color-blue;
+  }
+
+  &::after {
+    right: 0;
+    background-color: $color-red;
+  }
+
+  //if section complete
+  &.complete {
+    color: #fff !important;
+
+    &::before {
+      width: 100%;
+    }
+
+    .button-complete {
+      left: 2rem;
+      transform: translateY(-50%) rotate(90deg) !important;
+      opacity: 1;
+      background-color: #fff;
+
+      &::before {
+        right: 1.75rem;
+        background-color: $color-green;
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  //if section delete
+  &.delete {
+    color: #fff !important;
+    overflow: hidden;
+    transform: rotateX(180deg);
+    background-color: $color-red;
+    backface-visibility: hidden;
+    transition: all .5s ease;
+
+    td {
+      margin-top: -6rem;
+      transition-delay: 2s;
+      transition: all 1s ease;
+    }
+
+    &::after {
+      width: 100%;
+    }
+
+    .button-delete {
+      right: 2rem;
+      opacity: 1;
+      background-color: #fff;
+
+      &::before,
+      &::after {
+        background-color: $color-red;
+      }
+    }
+  }
+}
+
+th,
+td {
+  padding: 2rem 1rem;
+  flex: 1;
+  border-bottom: 1px solid rgba(#000, 0.2);
+
+  &:nth-child(1) {
+    flex: 1;
+  }
+
+  &:nth-child(2) {
+    flex: 2;
+  }
+
+  &:nth-child(3) {
+    flex: 3;
+  }
+
+  &:nth-child(4) {
+    flex: 1;
+  }
+
+  &:nth-child(5) {
+    flex: 0;
+    padding: 0;
+  }
+}
+
+th {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+td {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.button {
+
+  &-complete,
+  &-delete {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg) rotateX(90deg);
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    border-radius: 50%;
+    border: 0;
+    color: #fff;
+    font-size: 2rem;
+    transition: all .3s ease;
+    opacity: 0;
+    box-shadow: 0 0 3px 1px rgba(#000, 0.2);
+
+    &:active {
+      box-shadow: inset 0 0 1px 1px rgba(#000, 0.2);
+    }
+  }
+
+  &-complete {
+    left: 0;
+    background-color: $color-green;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: #fff;
+      bottom: 1rem;
+    }
+
+    &::before {
+      right: 1.45rem;
+      width: 0.5rem;
+      height: 2rem;
+    }
+
+    &::after {
+      left: 1.25rem;
+      width: 1rem;
+      height: 0.5rem;
+    }
+
+  }
+
+  &-delete {
+    right: 0;
+    background-color: $color-red;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: #fff;
+    }
+
+    &::before {
+      top: 1rem;
+      left: 1.75rem;
+      width: 0.5rem;
+      height: 2rem;
+    }
+
+    &::after {
+      top: 1.75rem;
+      left: 1rem;
+      width: 2rem;
+      height: 0.5rem;
+    }
+  }
+}
+
+tr:hover {
+  .button {
+
+    &-complete,
+    &-delete {
+      opacity: 1;
+      transform: translateY(-50%) rotate(45deg) rotateX(0);
+    }
+
+    &-complete {
+      left: 2rem;
+    }
+
+    &-delete {
+      right: 2rem;
+    }
+  }
+}
+
+
+.message-display {
+  z-index: 9;
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: Poppins;
+  font-size: 1.8rem;
+  font-weight: 500;
+  transition: all .3s ease;
+}
+
+.message-delete {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: red;
+  margin-left: 3rem;
+  transition: all .3s ease;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: rgba(#fff, 0.7);
+    border-radius: 0 0 4px 4px;
+    transition-duration: 3s;
+  }
+
+  &.appear {
+
+    &::after {
+      animation: fullWidth;
+      animation-timing-function: linear;
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+
+@keyframes fullWidth {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

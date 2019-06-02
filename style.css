@@ -1,0 +1,448 @@
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  font-family: Lato;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+.site {
+  position: relative;
+  width: 100%;
+  padding: 9rem 0;
+  min-height: 100vh;
+  background-image: radial-gradient(ellipse at 50% 100%, #4185ff 60%, #5a95ff 60%, #ffd55c 60%, #ffce43 60%);
+}
+
+.site > * {
+  z-index: 1;
+  position: relative;
+}
+
+.site-box {
+  background-color: #fff;
+  width: 100%;
+  max-width: 91rem;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 0 33px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 33px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.site-head {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.site-head-lt {
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+.site-head-rt {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  text-align: right;
+}
+
+.site-head-rt button {
+  font-family: Montserrat;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: .5rem 0 .5rem 1.5rem;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: #5a95ff;
+  border: 3px solid #5a95ff;
+  border-radius: 25px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.site-head-rt button:hover {
+  color: #5a95ff;
+  background-color: #fff;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.1);
+}
+
+.site-head h1 {
+  font-size: 5rem;
+  margin: 0;
+  padding: 3rem 1rem;
+}
+
+.site-body {
+  min-height: 40rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#table.complete-hide tr.complete {
+  overflow: hidden;
+}
+
+#table.complete-hide tr.complete td {
+  margin-top: -6rem;
+}
+
+tbody {
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+}
+
+tr {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 10rem;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+tr::before, tr::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+tr::before {
+  left: 0;
+  background-color: #5a95ff;
+}
+
+tr::after {
+  right: 0;
+  background-color: #ff6868;
+}
+
+tr.complete {
+  color: #fff !important;
+}
+
+tr.complete::before {
+  width: 100%;
+}
+
+tr.complete .button-complete {
+  left: 2rem;
+  -webkit-transform: translateY(-50%) rotate(90deg) !important;
+          transform: translateY(-50%) rotate(90deg) !important;
+  opacity: 1;
+  background-color: #fff;
+}
+
+tr.complete .button-complete::before {
+  right: 1.75rem;
+  background-color: #4edc9f;
+}
+
+tr.complete .button-complete::after {
+  opacity: 0;
+}
+
+tr.delete {
+  color: #fff !important;
+  overflow: hidden;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  background-color: #ff6868;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+tr.delete td {
+  margin-top: -6rem;
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+tr.delete::after {
+  width: 100%;
+}
+
+tr.delete .button-delete {
+  right: 2rem;
+  opacity: 1;
+  background-color: #fff;
+}
+
+tr.delete .button-delete::before, tr.delete .button-delete::after {
+  background-color: #ff6868;
+}
+
+th,
+td {
+  padding: 2rem 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  padding: 0;
+}
+
+th {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+td {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.button-complete, .button-delete {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%) rotate(45deg) rotateX(90deg);
+          transform: translateY(-50%) rotate(45deg) rotateX(90deg);
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 0;
+  color: #fff;
+  font-size: 2rem;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  opacity: 0;
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-complete:active, .button-delete:active {
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-complete {
+  left: 0;
+  background-color: #4edc9f;
+}
+
+.button-complete::before, .button-complete::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  bottom: 1rem;
+}
+
+.button-complete::before {
+  right: 1.45rem;
+  width: 0.5rem;
+  height: 2rem;
+}
+
+.button-complete::after {
+  left: 1.25rem;
+  width: 1rem;
+  height: 0.5rem;
+}
+
+.button-delete {
+  right: 0;
+  background-color: #ff6868;
+}
+
+.button-delete::before, .button-delete::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+}
+
+.button-delete::before {
+  top: 1rem;
+  left: 1.75rem;
+  width: 0.5rem;
+  height: 2rem;
+}
+
+.button-delete::after {
+  top: 1.75rem;
+  left: 1rem;
+  width: 2rem;
+  height: 0.5rem;
+}
+
+tr:hover .button-complete, tr:hover .button-delete {
+  opacity: 1;
+  -webkit-transform: translateY(-50%) rotate(45deg) rotateX(0);
+          transform: translateY(-50%) rotate(45deg) rotateX(0);
+}
+
+tr:hover .button-complete {
+  left: 2rem;
+}
+
+tr:hover .button-delete {
+  right: 2rem;
+}
+
+.message-display {
+  z-index: 9;
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: Poppins;
+  font-size: 1.8rem;
+  font-weight: 500;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.message-delete {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #fff;
+  background-color: red;
+  margin-left: 3rem;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.message-delete::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0 0 4px 4px;
+  -webkit-transition-duration: 3s;
+          transition-duration: 3s;
+}
+
+.message-delete.appear::after {
+  -webkit-animation: fullWidth;
+          animation: fullWidth;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes fullWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fullWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
